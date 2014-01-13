@@ -1,0 +1,18 @@
+{
+  "name": "arrhythmia-site",
+  "title": "arrhythmia-site",
+  "description": "Source files for the website of Arrhythmia the game",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Limestudios/arrhythmia-site.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "source": "./src",
+  "build": "./app"
+}

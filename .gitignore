@@ -1,0 +1,12 @@
+.settings
+*.DS_Store
+
+#LOCAL DOCUMENTS
+TASKLIST.md
+CONTRIBUTING.md
+
+#NODE/GRUNT
+node_modules/
+
+#PRODUCTION FILES
+dist/

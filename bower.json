@@ -1,0 +1,8 @@
+{
+  "name": "arrhythmia-site",
+  "version": "1.0.0",
+  "dependencies": {
+  }
+  "private": true
+  "directory": "./src/packages/"
+}
