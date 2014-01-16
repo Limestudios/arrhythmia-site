@@ -1,9 +1,4 @@
 <?php
-
-if(Session::exists('home')) {
-	echo '<p>' . Session::flash('home') . '</p>';
-}
-
 $user = new User();
 if($user->isLoggedIn()) {
 ?>
@@ -35,6 +30,11 @@ if($user->isLoggedIn()) {
           
           </div>
 		</div>
+        <?php
+            if(Session::exists('home')) {
+	           echo '<p>' . Session::flash('home') . '</p>';
+            }
+        ?>
 	</section>
 
 </main>
