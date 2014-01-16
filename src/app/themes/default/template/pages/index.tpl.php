@@ -44,8 +44,19 @@ if($user->isLoggedIn()) {
 		echo '<p>You are an admin</p>';
 	}
 
-} else {
-	echo '<section><p>You need to <a href="login">login</a> or <a href="register">register</a>!</p></section>';
+} else { ?>
+
+    <div class="pure-u-1" id="main">
+        <div class="header">
+            <h1>Home</h1>
+            <h2>Arrhythmia Site.</h2>
+        </div>
+        
+        <div class="content">
+            <h2>You need to <a href="login">login</a> or <a href="register">register</a>!</h2>
+        </div>
+    </div>
+<?php
 }
 ?>
 </section>

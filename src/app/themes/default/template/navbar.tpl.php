@@ -98,5 +98,3 @@
             </ul>
         </div>
     </div>
-
-    <div id="main">

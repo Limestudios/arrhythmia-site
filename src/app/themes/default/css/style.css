@@ -1897,6 +1897,9 @@ h1 {
   text-align: center;
   padding: 50px 0;
   background: rgb(30,30,30);
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 
 .page-header.unpinned {
@@ -1968,4 +1971,9 @@ a {
     padding: 1em 1em;
 	line-height: 32px;
     background-color: rgba(255,126,41,0.5);
+}
+
+#layout {
+    min-height:100%;
+   position:relative;
 }
