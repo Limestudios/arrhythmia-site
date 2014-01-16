@@ -49,7 +49,7 @@
 
 		private function action($action, $table, $where = array()) {
 			if(count($where) === 3) {
-				$operators = array('=', '>', '<', '>=', '<=', 'LIKE');
+				$operators = array('=', '>', '<', '>=', '<=');
 
 				$field 		= $where[0];
 				$operator 	= $where[1];

@@ -1,32 +1,37 @@
 <?php
 
+    $this->_db = DB::getInstance();
+
 	if(Input::exists()) {
 		if(Token::check(Input::get('token'))) {
 			$validate = new Validate();
 			$validation = $validate->check($_POST, array(
-				'Username' => array(
-					'required' => true,
+				'Keywords' => array(
+					'required' => false,
 					'min' => 2,
 					'max' => 20
-				),
-				'Password' => array(
-					'required' => true,
-					'min' => 6
 				)
 			));
 
 			if($validate->passed()) {
-				$user = new User();
-
-				$remember = (Input::get('Remember') === 'on') ? true : false;
-				$login = $user->login(Input::get('Username'), Input::get('Password'), $remember);
-
-				if($login) {
-					Redirect::to('index');
-				} else {
-					echo '<div id="flashTop">Sorry, logging in failed!</div>';
-				}
-
+				
+                $beatmapsArray = array();
+                                
+                $beatmapsA = $this->_db->get('beatmaps', array('Artist', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
+                foreach ($beatmapsA->results() as $beatmapA) {
+                    array_push($beatmapsArray, $beatmapA->Name);
+                }
+                $beatmapsN = $this->_db->get('beatmaps', array('Name', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
+                foreach ($beatmapsN->results() as $beatmapN) {
+                    array_push($beatmapsArray, $beatmapN->Name);
+                }
+                $beatmapsC = $this->_db->get('beatmaps', array('creator', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
+                foreach ($beatmapsC->results() as $beatmapC) {
+                    array_push($beatmapsArray, $beatmapC->Name);
+                }
+                
+                $beatmapsArray = array_unique($beatmapsArray);
+                
 			} else {
 
 				echo '<div id="flashTop">';
@@ -49,6 +54,26 @@
     </div>
 
     <div class="content">
-        <p><h2>Coming Soon!</h2></h2></p>
+        <form class="pure-form pure-g" action="" method="post">
+            <div class="pure-u-1-2">
+                <label for="Username">Keywords</label>
+                <input class="pure-input-1" type="text" name="Keywords" id="Keywords" value="<?php echo escape(Input::get('Keywords')); ?>">
+            </div>
+
+            <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+            
+            <div class="pure-u-1-2">
+                <button type="search" class="pure-button pure-button-primary">
+                    Login
+                </button>
+            </div>
+        </form>
+        <?php
+            if (isset($beatmapsArray)) {
+                foreach($beatmapsArray as $beatmap) {
+                    echo $beatmap . '<br>';
+                }
+            }
+        ?>
     </div>
 </div>
