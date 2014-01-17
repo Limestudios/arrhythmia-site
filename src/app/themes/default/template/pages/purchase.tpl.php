@@ -42,13 +42,17 @@
 
 ?>
 
-<div class="pure-u-1" id="main">
-    <div class="header">
-        <h1>Purchase!</h1>
-        <h2>Buy yourself a copy of Arrhythmia.</h2>
-    </div>
+<main class="pure-u-1" id=main class=main>
+  
+  <header class=page-header>
+    <h1>Coming Soon!</h1>
+  </header><!-- /.page-header -->
 
-    <div class="content">
-        <p><h2>Coming Soon!</h2></h2></p>
-    </div>
-</div>
+  <section class=page-content>
+    <p><h2>Coming Soon!</h2></h2></p>
+  </section><!-- /.page-content -->
+
+  <footer class=page-footer>
+  </footer><!-- /.page-footer -->
+
+</main>

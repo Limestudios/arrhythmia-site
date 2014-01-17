@@ -75,6 +75,7 @@ html {
 
 body {
     margin: 0;
+  overflow-x: hidden;
 }
 
 /* ==========================================================================
@@ -1877,10 +1878,10 @@ h1 {
 }
 
 .index-title {
-  padding: 100px 0 50px 0;
+  padding: 150px 0 150px 0;
   text-transform: uppercase;
   text-align: center;
-  background: #ff7e29;
+  background: rgb(10,10,11);
 }
 
 .index-news {
@@ -1977,3 +1978,24 @@ a {
     min-height:100%;
    position:relative;
 }
+
+/* This is a compiled file, you should be editing the file in the templates directory */
+.pace .pace-progress {
+  background: #29d;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 2px;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+

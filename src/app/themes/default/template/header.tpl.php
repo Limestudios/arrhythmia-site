@@ -12,6 +12,20 @@ while ($fileCSS = readdir($fpCSS)) {
 closedir($fpCSS);
 
 foreach ($resultsCSS as $resultCSS) {
-        echo '<link rel="stylesheet" href="'.Config::get('site/homeurl').'/'.$dirCSS.'/'.$resultCSS.'">';
+    echo '<link rel="stylesheet" href="'.Config::get('site/homeurl').'/'.$dirCSS.'/'.$resultCSS.'">';
 }
+ 
+# Load all of the selected theme's javascript files
+    $dirJS = 'app/themes/default/js';
+    $fpJS = opendir($dirJS);
+    while ($fileJS = readdir($fpJS)) {
+            if (strpos($fileJS, '.js',1))
+                $resultsJS[] = $fileJS;
+        }
+    closedir($fpJS);
+
+    foreach ($resultsJS as $resultJS) {
+        echo '<script src="'.Config::get('site/homeurl').'/'.$dirJS.'/'.$resultJS.'"></script>';
+    }
+
 ?>

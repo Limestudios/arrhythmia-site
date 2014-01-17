@@ -27,4 +27,6 @@
         $('div#flash').slideDown('slow').delay(2000).slideUp('slow');
         $('div#flashTop').slideDown('slow').delay(10000).slideUp('slow');
     });
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene);
     </script>

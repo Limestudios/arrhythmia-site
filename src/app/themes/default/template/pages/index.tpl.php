@@ -4,12 +4,29 @@ if($user->isLoggedIn()) {
 ?>
 
 <main role=main>
-
+  
 	<section class=index-title>
 		<div class=row>
-          <div class="large-12 small-12 columns">
-            <h1>Arrhythmia</h1>
-          </div>
+      <div class="large-12 small-12 columns">
+        <ul id=scene class="scene" 
+          data-calibrate-x="true"
+          data-calibrate-y="true"
+          data-invert-x="false"
+          data-invert-y="false"
+          data-limit-x="false"
+          data-limit-y="10"
+          data-scalar-x="8"
+          data-scalar-y="8"
+          data-friction-x="0.4"
+          data-friction-y="0.4">  
+          <li class=layer data-depth=0.00><img src=layer1.png>
+          <li class=layer data-depth=0.20><img src=layer2.png>
+          <li class=layer data-depth=0.40><img src=layer3.png>
+          <li class=layer data-depth=0.60><img src=layer4.png>
+          <li class=layer data-depth=0.80><img src=layer5.png>
+          <li class=layer data-depth=1.00><img src=layer6.png>
+        </ul>
+      </div>
 		</div>
 	</section>
 	
