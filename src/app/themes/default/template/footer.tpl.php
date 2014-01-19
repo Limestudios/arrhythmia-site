@@ -1,9 +1,8 @@
-<footer class=page-footer>
+<!--<footer class=page-footer>
 	<small>
 		&copy; 2014 Liam Craver
 	</small>
 </footer><!-- /.page-footer -->
-
 <?php 
 
     # Load all of the selected theme's javascript files
@@ -20,13 +19,11 @@
     }
 
 ?>
-
-<!-- Script to have Session Flash Messages animate up and then down -->
-    <script>
-    $(document).ready(function() {
-        $('div#flash').slideDown('slow').delay(2000).slideUp('slow');
-        $('div#flashTop').slideDown('slow').delay(10000).slideUp('slow');
-    });
-    var scene = document.getElementById('scene');
-    var parallax = new Parallax(scene);
-    </script>
+<script>
+$(document).ready(function() {
+  $('div#flash').slideDown('slow').delay(2000).slideUp('slow');
+  $('div#flashTop').slideDown('slow').delay(10000).slideUp('slow');
+});
+var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);
+</script>

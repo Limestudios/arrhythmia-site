@@ -1,3 +1,8 @@
+<div class=page-header>
+  <h1>Change Password</h1>
+  Change the password currently associated with your account
+</div>
+
 <?php
 
 	$user = new User();
@@ -50,22 +55,14 @@
 	}
 ?>
 
-<section>
-	<form action="" method="post">
-		<div class="field">
-			<label for="password_current">Current Password</label>
-			<input type="password" name="password_current" id="password_current">
-		</div>
-		<div class="field">
-			<label for="password_new">New Password</label>
-			<input type="password" name="password_new" id="password_new">
-		</div>
-		<div class="field">
-			<label for="password_new_again">New Password Again</label>
-			<input type="password" name="password_new_again" id="password_new_again">
-		</div>
-
-		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-		<input type="submit" value="Change">
-	</form>
+<section class=page-content>
+  <div class=wrapper>
+    <form class="standard-box blue" action="" method="post">
+      <input type="password" name="password_current" id="password_current" placeholder="Current Password">
+      <input type="password" name="password_new" id="password_new" placeholder="New Password">
+      <input type="password" name="password_new_again" id="password_new_again" placeholder="Repeat New Password">
+      <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+      <input type="submit" value="Change">
+    </form>
+  </div>
 </section>

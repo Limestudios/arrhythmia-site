@@ -1,64 +1,42 @@
-<div class="pure-u-1" id="main">
-    <div class="header">
-        <h1>Profile</h1>
-        <h2>Change and customize your account.</h2>
-    </div>
+<main class=main id=main role=main>
+  
+  <header class=page-header>
+    <div class=wrapper>
+      <h1>Profile Settings</h1>
+    </div><!-- /.wapper -->
+  </header><!-- /.page-header -->
+  
+  <section class=page-content>
+    <div class=wrapper>
+      <?php
 
-<?php
+      if(Session::exists('home')) {
+        echo '<p>' . Session::flash('home') . '</p>';
+      }
 
-if(Session::exists('home')) {
-	echo '<p>' . Session::flash('home') . '</p>';
-}
-
-$user = new User();
-if($user->isLoggedIn()) {
-?>
-
-    <div class="content">
-    	<div class="pure-g-r grid-example">
-    		<div class="pure-u-2-5">
-        		<div class="l-box">
-            		<h3><a href="update">Update Profile</a></h3>
-            		<p>
-            		    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum dui turpis.
-            		</p>
-        		</div>
-    		</div>
-    		<div class="pure-u-3-5">
-        		<div class="l-box">
-            		<h3><a href="change-password">Change Password</a></h3>
-            		<p>
-            		    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum dui turpis.
-            		</p>
-        		</div>
-    		</div>
-		</div>
-	</div>
-
-<?php
-
-	if($user->hasPermission('admin')) {
-		echo '<p>You are an admin</p>';
-	}
-
-} else {
-
-?>
-	
-    <div class="content">
-        <div class="pure-g-r grid-example">
-            <div class="pure-u-1 l-centered">
-                <div class="1-box">
-                    <p>You need to either <a href="login">Login</a> or <a href="register">Register</a>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php
-
-}
-
-?>
-
-</div>
+      $user = new User();
+      if($user->isLoggedIn()) {
+      ?>
+      
+      <div class="account-settings standard-box">
+        <h3><a href=update rel=alternate>Update Profile</a></h3><br>
+        <h3><a href=change-password rel=alternate>Change Password</a></h3>
+      </div>
+      <?php
+        if($user->hasPermission('admin')) {
+          echo '<div class="account-settings standard-box red error">
+                  <p>You are an admin.</p>
+                </div>';
+        }
+      } else {
+      ?>
+      <div class="account-settings standard-box red">
+        <p>You need to either <a href=login class=line>sign in</a> or <a href=register class=line>register</a> an account.</p>
+      </div>
+      <?php
+      }
+      ?>
+    </div><!-- /.wrapper -->
+  </section><!-- /.page-content -->
+  
+</main>

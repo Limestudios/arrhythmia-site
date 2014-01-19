@@ -47,26 +47,14 @@
 
 ?>
 
-<div class="pure-u-1" id="main">
-    <div class="header">
-        <h1>Beatmaps!</h1>
-        <h2>Search for Arrhythmia Beatmaps.</h2>
-    </div>
-
-    <div class="content">
+<main class=main role=main>
+  <section class=page-content>
+    <div class=wrapper>
+      <h1>Beatmaps</h1>
         <form class="pure-form pure-g" action="" method="post">
-            <div class="pure-u-1-2">
-                <label for="Username">Keywords</label>
-                <input class="pure-input-1" type="text" name="Keywords" id="Keywords" value="<?php echo escape(Input::get('Keywords')); ?>">
-            </div>
-
+            <input class="pure-input-1" type="text" name="Keywords" id="Keywords" value="<?php echo escape(Input::get('Keywords')); ?>">
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-            
-            <div class="pure-u-1-2">
-                <button type="search" class="pure-button pure-button-primary">
-                    Login
-                </button>
-            </div>
+            <button type="search" class="pure-button pure-button-primary">Search</button>
         </form>
         <?php
             if (isset($beatmapsArray)) {
@@ -75,5 +63,6 @@
                 }
             }
         ?>
-    </div>
-</div>
+    </div><!-- /.wrapper -->
+  </section><!-- /.page-content -->
+</main>

@@ -79,31 +79,21 @@
 	}
 
 ?>
-
-<section>
-	<form action="" method="post">
-		<div class="field">
-			<label for="Name">Enter your name</label>
-			<input type="text" name="Name" id="Name" value="<?php echo escape(Input::get('name')); ?>">
-		</div>
-		<div class="field">
-			<label for="Email">Enter your Email</label>
-			<input type="text" name="Email" id="Email" value="<?php echo escape(Input::get('email')); ?>">
-		</div>
-		<div class="field">
-			<label for="Username">Username</label>
-			<input type="text" name="Username" id="Username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
-		</div>
-		<div class="field">
-			<label for="Password">Choose a password</label>
-			<input type="password" name="Password" id="Password">
-		</div>
-		<div class="field">
-			<label for="PasswordAgain">Enter your password again</label>
-			<input type="password" name="PasswordAgain" id="PasswordAgain">
-		</div>
-
-		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-		<input type="submit" value="Register">
-	</form>
-</section>
+<main class=main role=main>
+  <section class="page-content page-special">
+    <div class=wrapper>
+      <form class="form-special form-registration" action="" method=post>
+        <div class=form-special-wrapper>
+          <h3>Register</h3>
+          <input type=text name=Name id=Name placeholder=Name value="<?php echo escape(Input::get('name')); ?>">
+          <input type=text name=Email id=Email placeholder=Email value="<?php echo escape(Input::get('email')); ?>">
+          <input type=text name=Username id=Username placeholder=Username value="<?php echo escape(Input::get('username')); ?>" autocomplete="off">
+          <input type=password name=Password id=Password placeholder=Password>
+          <input type=password name=PasswordAgain id=PasswordAgain placeholder="Repeat Password">
+          <input type=hidden name=token value="<?php echo Token::generate(); ?>">
+        </div>
+        <input class="form-special-button left-button" type="submit" value="Register">
+      </form><!-- /.form-registration -->
+    </div><!-- /.wrapper -->
+  </section><!-- /.page-content -->
+</main>
