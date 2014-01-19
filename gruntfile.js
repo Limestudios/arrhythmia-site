@@ -5,9 +5,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({ 
         
     pkg:grunt.file.readJSON('package.json'),
-    
-    var DIRECTORY_BUILD = ./app;
-    var DIRECTORY_SOURCE = ./src;
         
     // combine LESS
     less: {
@@ -16,7 +13,7 @@ module.exports = function(grunt) {
           yuicompress: true
         },
         files: {
-          :'<%= pkg.source %>/less/styles.less'
+          '<%= pkg.build %>/css/styles.css':'<%= pkg.source %>/less/styles.less'
         }
       }
     },
@@ -25,7 +22,7 @@ module.exports = function(grunt) {
     uglify: { 
       production: {
         files: {
-          '<%= pkg.build %>/js/post.min.js':'<%= pkg.source %>/js/post.js'
+          '<%= pkg.build %>/js/pre.min.js':'<%= pkg.source %>/js/pre.js'
         }
       }
     },	
@@ -33,7 +30,7 @@ module.exports = function(grunt) {
     // watch all source files for changes 
     watch: {
       development: {
-        files: ['<%= pkg.source %>'],
+        files: ['<%= pkg.source %>/**/*.{less,js}'],
         tasks: ['less','uglify']
        }
       }
