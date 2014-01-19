@@ -10,3 +10,5 @@ node_modules/
 
 #PRODUCTION FILES
 dist/
+src/app/themes/default/css
+src/app/themes/default/js
