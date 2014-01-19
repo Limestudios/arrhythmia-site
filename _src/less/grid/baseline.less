@@ -1,0 +1,175 @@
+
+// import pages and partials
+@import '../page/index';
+@import '../page/about';
+@import '../page/sign-in-and-registration';
+@import '../page/beatmap-search';
+@import '../page/profile';
+@import '../page/account';
+@import '../page/coming-soon';
+@import '../partial/navigation';
+
+// pace loading bar styles and properties
+.pace .pace-progress {
+  background: @blue;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 3px;
+  -webkit-transition: width 1s;
+     -moz-transition: width 1s;
+      -o-transition: width 1s;
+         transition: width 1s;
+}
+.pace-inactive {
+  display: none;
+}
+
+
+
+/*--------------------/
+  $SITE-LOGO, $LOGO, $SITE
+/---------------------*/ 
+.site-logo {
+  display: inline-block;
+  position: fixed;
+  z-index: 99999;
+  background: @blue;
+  color: @white;
+  margin: 15px;
+  left: 50px;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: top left;
+  transition: 0.2s ease;
+}
+.site-logo.unpinned {
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+  transform: translateY(-100px);
+  -webkit-transform-origin: top;
+  -moz-transform-origin: top;
+  -ms-transform-origin: top;
+  -o-transform-origin: top;
+  transform-origin: top;
+  transition: 0.5s ease;
+}
+.site-logo.pinned {
+    transition: 0.5s ease;
+}
+.site-logo object {
+  fill: @white;
+} 
+#layout.active {
+  .site-logo {
+    left: 250px;
+  }
+}
+
+
+
+/*--------------------/
+  $PAGE-NAVIGATION, $PAGE-NAV
+/---------------------*/ 
+.page-nav {
+  position: absolute;
+  display: block;
+  top: 25px;
+  right: 0;
+  margin: 0 50px 0 0;
+}
+
+
+
+/*--------------------/
+  $PAGE-HEADER, $HEADER, $PAGE
+---------------------*/ 
+.page-header {
+  padding: @base-padding*2 0 0 0;
+  text-align: center;
+  -webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+  -webkit-animation-delay: 0.2s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+	   -moz-animation-name: fadeInUp;
+	     -o-animation-name: fadeInUp;
+	        animation-name: fadeInUp;
+}
+
+
+
+/*--------------------/
+  $PAGE-FOOTER, $FOOTER
+/---------------------*/ 
+.page-footer {
+  
+  position: absolute;
+  text-align: center;
+  padding: @base-padding;
+  bottom: 0;
+  font-size: 90%;
+  
+  span {
+    display: inline-block;
+    background: @white;
+    color: @blue;
+    padding: 3px;
+  }
+  
+}
+
+
+
+/*--------------------/
+  $PAGE-CONTENT, $CONTENT, $MAIN
+/---------------------*/ 
+main, .main {
+  height: 100%;
+}
+
+.page-content {
+  padding: @base-padding 0;
+  
+  &.page-special {
+    padding: @base-padding*6;
+  }
+  
+}
+
+
+
+/*--------------------/
+  $STANDARD-BOX
+/---------------------*/ 
+.standard-box {
+  
+  margin: 0 @column*4;
+  padding: @base-padding;
+  -webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+	   -moz-animation-name: fadeInUp;
+	     -o-animation-name: fadeInUp;
+	        animation-name: fadeInUp;
+  box-shadow: inset 0px 0px 30px 5px rgba(10, 10, 11, 0.1);
+  
+  &.blue { background: @blue; }
+  &.red { background: @red; box-shadow: inset 0px 7px 30px -5px rgba(10, 10, 11, 0.4);}
+  &.error { padding: @base-padding/5 !important; margin: 0 (@column*4)+1; text-align: center; }
+  
+}

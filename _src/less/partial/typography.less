@@ -1,0 +1,197 @@
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+
+/* default paragraph styles */
+p { 
+    
+	margin: @paragraph-margin;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+
+	aside {
+		font-size: @paragraph-aside-font-size;
+		line-height: @paragraph-aside-line-height;
+		font-style: @paragraph-aside-font-style;
+	}
+    
+    code {
+        background: fadeOut(@dark-grey, 95%);
+        padding: 2px;
+        border-radius: 5px;
+        top: 2px;
+    }
+    
+    em, i {
+        font-size: 85%;
+    }
+    
+}
+
+h2 ~ p,
+h3 ~ p { margin-top: 0; } 
+
+em, i { font-family: 'opensans-italic'; font-style: italic; line-height: inherit; }
+strong, b { font-family: 'dinpro-bold'; }
+strikethrough { color: @design; }
+small { font-size: @small-font-size; }
+@media screen and (max-width: 714px) { small { font-size: @small-font-size*1.2; } } // just to make sure <small> doesn't get too small, reset it at 714px...
+
+/* default header styles */
+h1, h2, h3, h4, h5, h6 {
+  
+  color: @type-color;
+	font-family: @heading-font-family;
+	
+	/* default subheader styles */
+	small {
+		font-size: @small-font-size;
+		color: @small-font-color;
+	}
+	
+}
+
+/* Headings styles overview
+ * H1-H6: bold
+ * H1: uppercase, large top margin
+ * H2: large top margin 
+ * H3: small top margin 
+ * H4-H6: set in Open Sans Italic
+*/
+
+h1 { 
+	font-size: @primary-h1-size; 
+	text-transform: uppercase;
+  line-height: 1.1;
+  //text-shadow: 1px 0px 2px 3px rgba(10,10,11,1)
+}
+h2 { 
+    font-size: @primary-h2-size; 
+    margin: @base-margin*2 0 0 0; 
+} 
+h3 { 
+    font-size: @primary-h3-size; 
+} 
+h4, h5, h6 { font: @primary-h4-size 'opensans-italic'; }
+
+
+hr {
+	height: 2px;
+	background: lighten(@dark-grey, 60%);
+	border: none;
+	left: 50%;
+    margin: 0 0 0 -22.5px;
+    width: 45px;
+	
+	&.small {
+		margin: 0;
+	}
+	
+	&.large {
+		width: @column*14;
+		margin: @base-margin*1 auto;
+	}
+	
+}
+
+
+/* default link styles */
+a, a:visited { 
+
+	// let's reset a few things
+	text-decoration: none; 
+	
+	// now for the normal styles
+	color: @white;
+	-webkit-transition: 0.25s;
+     -moz-transition: 0.25s;
+      -ms-transition: 0.25s;
+       -o-transition: 0.25s;
+          transition: 0.25s;
+    
+    &.white { color: @white; }
+			
+}
+
+/* special link styles */
+.article-content a,
+.article-content a:visited,
+.default.page a,
+.default.page a:visited,
+a.line, 
+a.line:visited {
+    
+    // links with a blue line and color
+    color: rgb(0, 169, 198);
+    border-bottom: 2px solid rgba(0, 169, 198, 0.2);
+    
+    // on :hover fadeout the line and add padding
+    &:hover {
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(0, 169, 198, 1);
+    }
+		     
+}
+
+/* default abbreviations styles */
+abbr,
+acronym {
+	text-transform: uppercase;
+	color: @type-color;
+	border-bottom: @type-border;
+	cursor: help;
+}
+abbr {
+	text-transform: none;
+}
+
+/* default blockquotes styles */
+blockquote {
+
+  font-family: 'dinpro-bold';
+	padding: @blockquote-padding;
+	border-left: @blockquote-border;
+	color: @blockquote-font-color;
+	
+	cite {
+        margin: 5px 0 0 0;
+		display: block;
+        text-align: right;
+		font: 14px 'opensans-italic';
+		
+		&:before {
+			content: "\2014 \0020";
+		}
+	
+	}
+    
+}
+
+
+// lists
+ul, ol {
+	margin: 12.5px;
+}
+li {
+    
+  margin: 5px;
+	margin-left: 30px;
+	list-style: circle;
+	line-height: 1.2;
+    
+  // having a line on links in lists looks clustered, remove them
+  a {
+    
+    color: @design;
+    border: none !important;
+    
+    &:hover {
+      color: fadeOut(@design, 40%);
+      border: none !important;
+    }
+      
+  }
+    
+} 
