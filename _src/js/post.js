@@ -8,5 +8,6 @@
 
   'use strict';
 
+    $("iframe").contents().find("element-selector").css("border-color", "blue");
 
 }(this));
