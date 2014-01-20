@@ -22,7 +22,8 @@ module.exports = function(grunt) {
     uglify: { 
       production: {
         files: {
-          '<%= pkg.build %>/js/pre.min.js':'<%= pkg.source %>/js/pre.js'
+          '<%= pkg.build %>/js/pre.min.js':'<%= pkg.source %>/js/pre.js',
+          '<%= pkg.build %>/js/post.min.js':'<%= pkg.source %>/js/post.js'
         }
       }
     },	
