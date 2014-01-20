@@ -12,10 +12,10 @@
       data-scalar-y="3"
       data-friction-x="0.4"
       data-friction-y="0.4">  
-      <li class=layer data-depth=0.00><img src=http://localhost/arrhythmia-site/src/app/themes/default/img/layer0.png>
-      <li class=layer data-depth=0.20><img src=http://localhost/arrhythmia-site/src/app/themes/default/img/layer1.png>
-      <li class=layer data-depth=0.40><img src=http://localhost/arrhythmia-site/src/app/themes/default/img/layer2.png>
-      <li class=layer data-depth=0.60><img src=http://localhost/arrhythmia-site/src/app/themes/default/img/layer3.png>
+      <li class=layer data-depth=0.30><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer0.png>
+      <li class=layer data-depth=0.40><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer1.png>
+      <li class=layer data-depth=0.50><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer2.png>
+      <li class=layer data-depth=0.10><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer3.png>
     </ul>
 	</section>
 	
