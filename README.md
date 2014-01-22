@@ -7,7 +7,7 @@
 We use Grunt, Bower and Node for in our workflow processes. If you have never used these tools before, visit their websites for documentation and examples:
 
 - [Grunt](http://gruntjs.com/getting-started)
-- [Bower](http://bower.io/). 
+- [Bower](http://bower.io/)
 
 We use Grunt to run common tasks such as copying files, preprocessing CSS and minifying assets. It automates all the quick, yet often tedious tasks that developers once had to do. Bower is a package manager. It tracks the JS and CSS packages we are using on the site and always makes sure we have the most recent version of those packages. These tools are configured by a number of files in the repository of the site, but you will have to install their CLI on your computer since they do not come installed. Make sure to visit their websites for a guide on how to install them.
 
