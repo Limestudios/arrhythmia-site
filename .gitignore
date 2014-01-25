@@ -1,14 +1,15 @@
 .settings
 *.DS_Store
 
-#LOCAL DOCUMENTS
+# LOCAL DOCUMENTS
 TASKLIST.md
 CONTRIBUTING.md
 
-#NODE/GRUNT
+# DEVELOPMENT FILES
 node_modules/
+bower_components/
 
-#PRODUCTION FILES
+# PRODUCTION FILES
 dist/
 src/app/themes/default/css
 src/app/themes/default/js

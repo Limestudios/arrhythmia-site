@@ -1,8 +1,23 @@
 {
   "name": "arrhythmia-site",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Limestudios/arrhythmia-site",
+  "authors": [
+    "Patrick Burtchaell <patrick@pburtchaell.com>"
+  ],
+  "description": "Source files for the website of Arrhythmia, the game.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
+    "jQuery": "~2.1.0",
+    "pace": "~0.4.17",
+    "parallax": "*"
   }
-  "private": true
-  "directory": "./src/packages/"
 }
