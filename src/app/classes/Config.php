@@ -86,6 +86,56 @@
 			}
 			return false;
 		}
+
+		public static function getDBSiteContent($path = null) {
+			if($path) {
+				$db = DB::getInstance();
+
+				$path = explode('/', $path);
+				$config = $db->get('config', array('setting_name', '=', 'site_content'));
+				$config = $config->results()[0]->setting_value;
+				$settings = json_decode($config, true);
+				$settings = $settings[$path[0]];
+
+				return $settings;
+			}
+			return false;
+		}
+
+		public static function updateDBSiteContent($path = null, $fields = array()) {
+			if($path) {
+				$db = DB::getInstance();
+
+				$path = explode('/', $path);
+				$config = $db->get('config', array('setting_name', '=', 'site_content'));
+				$id = $config->first()->id;
+				$siteContent = $config->results()[0]->setting_value;
+				$siteContent = json_decode($siteContent, true);
+
+				foreach($fields as $item => $value) {
+					for($i = 1; $i < count($fields); $i++) {
+						//print_r($item);
+						//print_r(isset($siteContent[$path[0]][$item]));
+						if(isset($siteContent[$path[0]][$item]) == $item) {
+							$siteContent[$path[0]][$item] = $value;
+						}
+					}
+				}
+
+				//print_r($siteContent);
+
+				$updateFields = array(
+		              			'setting_value' => json_encode($siteContent)
+        		   				);
+
+				if(!$db->update('config', $id, $updateFields)) {
+					throw new Exception('There was a problem updating.');
+				}
+				
+				//return $settings;
+			}
+			return false;
+		}
 	}
 
 ?>

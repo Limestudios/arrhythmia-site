@@ -24,9 +24,7 @@
       </div>
       <?php
         if($user->hasPermission('admin')) {
-          echo '<div class="account-settings standard-box red error">
-                  <p>You are an admin.</p>
-                </div>';
+          Redirect::to('admin');
         }
       } else {
       ?>

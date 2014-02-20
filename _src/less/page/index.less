@@ -32,20 +32,20 @@
 .index-info {
   
   position: relative;
-  padding: 100px 0;
+  padding: 20px 0;
   background: @red;
   
-  &:before,
-  &:after {
-    position: absolute;
-    content: '';
-    pointer-events: none;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    -webkit-transform: translateX(-50%) rotate(45deg);
-    transform: translateX(-50%) rotate(45deg);
-  }
+  //&:before,
+  //&:after {
+    //position: absolute;
+    //content: '';
+    //pointer-events: none;
+    //left: 50%;
+    //width: 100px;
+    //height: 100px;
+    //-webkit-transform: translateX(-50%) rotate(45deg);
+    //transform: translateX(-50%) rotate(45deg);
+  //}
   
   &:before {
     top: -50px;
@@ -75,6 +75,10 @@
 .index-beatmaps {
   padding: 200px 0;
   background: @black;
+}
+
+.index-beatmaps .wrapper{
+  text-align: center;
 }
 
 // warning message at the bottom of the homepage
