@@ -6,8 +6,8 @@
 		}
 
 		public static function salt($length) {
-			return openssl_random_pseudo_bytes($length);
-			//return mcrypt_create_iv($length);
+			//return openssl_random_pseudo_bytes($length);
+			return mcrypt_create_iv($length);
 		}
 
 		public static function unique() {

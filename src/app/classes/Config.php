@@ -102,6 +102,16 @@
 			return false;
 		}
 
+		public static function getDBSiteContentAll() {
+			$db = DB::getInstance();
+
+			$config = $db->get('config', array('setting_name', '=', 'site_content'));
+			$config = $config->results()[0]->setting_value;
+			$settings = json_decode($config, true);
+
+			return $settings;
+		}
+
 		public static function updateDBSiteContent($path = null, $fields = array()) {
 			if($path) {
 				$db = DB::getInstance();

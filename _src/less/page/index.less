@@ -62,7 +62,7 @@
 
 //
 .index-news { 
-  padding: 200px 0;
+  padding: 40px 0;
 }
 
 //
@@ -113,10 +113,26 @@
 }
 
 iframe#twitter-widget-0.twitter-timeline.twitter-timeline-rendered {
-    width: 100%;
+    //width: 100%;
     color: @white;
 }
 
 .wrapper {
     margin: 0 @column*2 0 @column*2 !important;
+}
+
+.left {
+  display: inline-block;
+  width: @column*5;
+  padding: 0 @column;
+  background-color: @dark-grey;
+}
+
+.right {
+  margin: 0 0 0 @column*1.5;
+  display: inline-block;
+  width: @column*5;
+  vertical-align: top;
+  padding: 10px @column;
+  background-color: @dark-grey;
 }

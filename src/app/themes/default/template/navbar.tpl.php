@@ -56,7 +56,7 @@
 <div class=site-logo>
   <a href=<?php echo Config::get('site/homeurl'); ?>>
     <object> 
-      <svg x="0px" y="0px" width="200px" height="50px" viewBox="605.5 0 200 50" >
+      <svg x="0px" y="0px" width="200px" height="48.5px" viewBox="605.5 0 200 50" >
         <g transform="translate(0.000000,153.000000) scale(0.100000,-0.100000)">
           <path d="M6369.931,1376.309l-28.34-0.381v-96.562v-96.562h13.721c7.5,0,15.762,0.381,18.428,0.771l4.697,0.879v34.053v34.18h35.576
           h35.576v-34.307v-34.307h19.053h19.072v27.07v27.188l-17.793,13.594c-9.785,7.49-17.793,13.848-17.793,14.102

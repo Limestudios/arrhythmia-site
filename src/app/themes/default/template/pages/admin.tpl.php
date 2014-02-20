@@ -1,5 +1,4 @@
 <?php
-
   $user = new User();
 
   if(!$user->isLoggedIn()) {
@@ -10,19 +9,19 @@
     Redirect::to('index');
   }
 
-  $siteContent = Config::getDBSiteContent('news');
-  print_r($siteContent);
+  $siteContent = Config::getDBSiteContentAll();
+  //print_r($siteContent);
 
   if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
 
       $validate = new Validate();
       $validation = $validate->check($_POST, array(
-        'news_title' => array(
+        'titleRaw' => array(
           'required' => true,
           'min' => 2
         ),
-        'news_content' => array(
+        'contentRaw' => array(
           'required' => true,
           'min' => 2
         )
@@ -31,12 +30,15 @@
       if($validation->passed()) {
         try {
           $Markdown_Parser = new Markdown;
-          $contentMD = $Markdown_Parser->transform(Input::get('news_content')); 
+          $contentRaw = Input::get('contentRaw');
+          $contentLink = Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme');
+          $contentMD = str_replace('[site/homeurl]', $contentLink, $contentRaw);
+          $contentMD = $Markdown_Parser->defaultTransform($contentMD); 
 
-          Config::updateDBSiteContent('news', array(
-            'title' => Input::get('news_title'),
-            'content' => $contentMD//,
-            //'content' => Input::get('news_content')
+          Config::updateDBSiteContent(Input::get('formName'), array(
+            'titleRaw' => Input::get('titleRaw'),
+            'content' => $contentMD,
+            'contentRaw' => Input::get('contentRaw')
           ));
 
           Session::flash('home', 'Your details have been updated.');
@@ -73,17 +75,26 @@
       ?>
       
       <div class="account-settings standard-box">
-        <section>
-          <h3>Edit News</h3>
-          <form class="standard-box blue" action="" method="post">
-            <input type="text" name="news_title" id="news_title" placeholder="<?php echo $siteContent['title']; ?>" value="<?php echo $siteContent['title']; ?>">
-            <textarea name="news_content" id="news_content" rows="6" value="<?php echo $siteContent['content']; ?>">
-              <?php echo $siteContent['content']; ?>
-            </textarea>
-            <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-            <input type="submit" value="Change">
-          </form>
-        </section>
+             //<?php var_dump($_SESSION); ?>
+        <h3>Edit News</h3>
+        <form class="blue" action="" method="post">
+          <input type="text" name="titleRaw" id="titleRaw" placeholder="<?php echo $siteContent['news']['titleRaw']; ?>" value="<?php echo $siteContent['news']['titleRaw']; ?>">
+          <textarea name="contentRaw" id="contentRaw" rows="6" value="<?php echo $siteContent['news']['contentRaw']; ?>"><?php echo $siteContent['news']['contentRaw']; ?></textarea>
+          <section class=preview><?php echo $siteContent['news']['content']; ?></section>
+          <input type="hidden" name="token" value="<?php echo $tokenGen = Token::generate(); ?>">
+          <input type="hidden" name="formName" value="news">
+          <input type="submit" value="Change">
+        </form>
+        <hr>
+        <h3>Edit About</h3>
+        <form class="blue" action="" method="post">
+          <input type="text" name="titleRaw" id="titleRaw" placeholder="<?php echo $siteContent['about']['titleRaw']; ?>" value="<?php echo $siteContent['about']['titleRaw']; ?>">
+          <textarea name="contentRaw" id="contentRaw" rows="6" value="<?php echo $siteContent['about']['contentRaw']; ?>"><?php echo $siteContent['about']['contentRaw']; ?></textarea>
+          <section class=preview><?php echo $siteContent['about']['content']; ?></section>
+          <input type="hidden" name="token" value="<?php echo $tokenGen; ?>">
+          <input type="hidden" name="formName" value="about">
+          <input type="submit" value="Change">
+        </form>
       </div>
 
       <?php

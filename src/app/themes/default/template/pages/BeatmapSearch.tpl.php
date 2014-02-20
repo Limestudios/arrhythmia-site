@@ -18,15 +18,15 @@
                 $beatmapsArray = array();
                                 
                 $beatmapsA = $this->_db->get('beatmaps', array('Artist', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
-                foreach ($beatmapsA->results() as $beatmapA) {
+                foreach ($this->_db->results() as $beatmapA) {
                     array_push($beatmapsArray, $beatmapA->Name);
                 }
                 $beatmapsN = $this->_db->get('beatmaps', array('Name', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
-                foreach ($beatmapsN->results() as $beatmapN) {
+                foreach ($this->_db->results() as $beatmapN) {
                     array_push($beatmapsArray, $beatmapN->Name);
                 }
                 $beatmapsC = $this->_db->get('beatmaps', array('creator', 'LIKE', '%'. escape(Input::get("Keywords")) . '%'));
-                foreach ($beatmapsC->results() as $beatmapC) {
+                foreach ($this->_db->results() as $beatmapC) {
                     array_push($beatmapsArray, $beatmapC->Name);
                 }
                 
@@ -51,6 +51,7 @@
   <section class=page-content>
     <div class=wrapper>
       <h1>Beatmaps</h1>
+        <?php //var_dump($_SESSION); ?>
         <form class="pure-form pure-g" action="" method="post">
             <input class="pure-input-1" type="text" name="Keywords" id="Keywords" value="<?php echo escape(Input::get('Keywords')); ?>">
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">

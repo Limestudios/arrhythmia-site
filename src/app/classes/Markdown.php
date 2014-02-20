@@ -725,7 +725,7 @@ class Markdown implements MarkdownInterface {
 		$result = "<img src=\"$url\" alt=\"$alt_text\"";
 		if (isset($title)) {
 			$title = $this->encodeAttribute($title);
-			$result .=  " title=\"$title\""; # $title already quoted
+			$result .=  " width=\"$title\""; # $title already quoted
 		}
 		$result .= $this->empty_element_suffix;
 
