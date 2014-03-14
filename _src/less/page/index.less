@@ -1,5 +1,5 @@
 // paralax styles and properties
-.scene {
+.scene_OLD {
   
   display: block;
   min-width: 225%;
@@ -47,16 +47,16 @@
     //transform: translateX(-50%) rotate(45deg);
   //}
   
-  &:before {
-    top: -50px;
-    background: inherit;
-  }
+  //&:before {
+    //top: -50px;
+    //background: inherit;
+  //}
   
-  &:after {
-    bottom: -50px;
-    z-index: 10;
-    background: inherit;
-  }
+  //&:after {
+    //bottom: -50px;
+    //z-index: 10;
+    //background: inherit;
+  //}
   
 }
 
@@ -126,13 +126,23 @@ iframe#twitter-widget-0.twitter-timeline.twitter-timeline-rendered {
   width: @column*5;
   padding: 0 @column;
   background-color: @dark-grey;
+  padding: 10px @column;
 }
 
 .right {
   margin: 0 0 0 @column*1.5;
   display: inline-block;
   width: @column*5;
-  vertical-align: top;
+  vertical-align: top !important;
   padding: 10px @column;
   background-color: @dark-grey;
+  text-align: center;
+}
+
+ul.scene {
+  margin: 0 !important;
+}
+
+li.layer {
+  margin: 0 !important;
 }

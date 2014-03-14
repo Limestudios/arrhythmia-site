@@ -24,6 +24,12 @@
   $userCount = $this->_db->count();
   $this->_db->get('users', array("id", ">", "0"));
   $totalUserCount = $this->_db->count();
+  
+  // Current Version 
+  $siteContent = Config::getDBSiteContent('development');
+  $percentDone = $siteContent['percentDone'];
+  $currentVersion = $siteContent['currentVersion'];
+  $nextVersion = $siteContent['nextVersion'];
 ?>
 
 <script>
@@ -48,12 +54,22 @@
       'max': totalUserCount
     });
     $('.dialUserCount').val(userCount).trigger('change');
+  
+    // -- Precent Done -- //
+    var percentDone = "<?php echo $percentDone; ?>";
+    
+    $(".dialPercentDone").knob({
+      'readOnly':true,
+      'min': 0,
+      'max': 100
+    });
+    $('.dialPercentDone').val(percentDone).trigger('change');
   });
 </script>
 
 
 <main role=main class="main index-page">
-	<!--<section class=index-title>
+  <section class=index-title>
     <ul id=scene class="scene" 
       data-calibrate-x="true"
       data-calibrate-y="true"
@@ -70,7 +86,7 @@
       <li class=layer data-depth=0.50><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer2.png>
       <li class=layer data-depth=0.10><img src=<?php echo Config::get('site/homeurl').'/app/themes/'.Config::get('site/theme')?>/img/layer3.png>
     </ul>
-	</section>-->
+	</section>
 
   <section class="index-title">
   </section>
@@ -102,15 +118,22 @@
   <section class=index-news>
     <div class=wrapper>
         <section class="left">
-          <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/ArrhythmiaGame" data-widget-id="425116611243040768" data-theme="dark" data-tweet-limit="4" data-chrome="noheader nofooter noscrollbar noborders transparent">Tweets by @ArrhythmiaGame</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          <!--<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/ArrhythmiaGame" data-widget-id="425116611243040768" data-theme="dark" data-tweet-limit="4" data-chrome="noheader nofooter noscrollbar noborders transparent">Tweets by @ArrhythmiaGame</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+          <?php 
+            $siteContent = Config::getDBSiteContent('news');
+            echo '<p><h3>'.$siteContent['titleRaw'].'</h3></p>';
+            echo '<hr>';
+            echo '<b>'.$siteContent['date']['date'].'</b>';
+            echo '<p>'.$siteContent['content'].'</p>';
+          ?>
         </section>
         <section class="right">
-        <?php 
-          $siteContent = Config::getDBSiteContent('news');
-          echo '<h3>'.$siteContent['titleRaw'].'</h3>';
-          echo '<p>'.$siteContent['content'].'</p>';
-        ?>
+        <p>Current Version : <?php echo $currentVersion; ?></p>
+        <p>Next Version : <?php echo $nextVersion; ?></p>
+        <p>Precent Done :</p>
+          <input class="dialPercentDone" type="text" data-width="50%" data-thickness=".4" 
+          data-fgColor="#00a2e8">
         </section>
     </div>
   </section>
@@ -129,12 +152,12 @@
   <section class=index-beatmaps>
     <div class=wrapper>
       <h3>Beatmaps</h3>
-      <input class="dialBeatmapCount" type="text" data-width="100%" data-thickness=".4" 
+      <!--<input class="dialBeatmapCount" type="text" data-width="100%" data-thickness=".4" 
       data-fgColor="#00a2e8">
 
       <h3>Users</h3>
       <input class="dialUserCount" type="text" data-width="100%" data-thickness=".4" 
-      data-fgColor="#ff7f27">
+      data-fgColor="#ff7f27">-->
     </div>
   </section>
 </main>

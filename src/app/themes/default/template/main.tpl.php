@@ -4,7 +4,7 @@
         <title><?php print @$this->title; ?></title>
         <?php print $this->head; ?>
     </head>
-    <body>
+    <body class=<?php print '"'.@$this->bodyStyling.'"'; ?>>
     	<?php print $this->navbar; ?>
         <?php print $this->content; ?>
         <footer>

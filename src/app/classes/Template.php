@@ -19,10 +19,11 @@
 		     */
 		    if (!is_file($template))
 		    {
-		        throw new FileNotFoundException("File not found: $template");
+                $this->template = 'app/includes/errors/404.php';
+		        //throw new FileNotFoundException("File not found: $template");
 		    } elseif (!is_readable($template))
 		    {
-		        throw new IOException("Could not access file: $template");
+		        //throw new IOException("Could not access file: $template");
 		    } else
 		    {
 		        $this->template = $template;

@@ -14,7 +14,8 @@
 			'host' => '127.0.0.1',
 			'username' => 'root',
 			'password' => '',
-			'db' => 'limeade'
+			'db' => 'limeade',
+			'secret_key' => 'OMGWTFBBQ'
 		),
 		'remember' => array(
 			'cookie_name' => 'hash',

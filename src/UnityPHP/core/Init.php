@@ -5,16 +5,16 @@
 	$GLOBALS['config'] = array(
 		'site' => array(
 			'url' => '',
-			'homeurl' => 'http://limestudios.net/arrhythmiagame',
+			'homeurl' => 'http://localhost/arrhythmia-site/src/UnityPHP',
 			'title' => 'Arrhythmia',
 			'theme' => 'default',
 			'email_activation' => false
 		),
 		'mysql' => array(
 			'host' => '127.0.0.1',
-			'username' => 'limestud',
-			'password' => 'lime10',
-			'db' => 'limestud_arrhythmia2'
+			'username' => 'root',
+			'password' => '',
+			'db' => 'limeade'
 		),
 		'remember' => array(
 			'cookie_name' => 'hash',

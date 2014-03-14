@@ -69,8 +69,34 @@
 			return false;
 		}
 
+		private function actionLimit($action, $table, $where = array(), $limit, $orderBy, $order) {
+			if(count($where) === 3) {
+				$operators = array('=', '>', '<', '>=', '<=', 'LIKE');
+
+				$field 		= $where[0];
+				$operator 	= $where[1];
+				$value 		= $where[2];
+
+				//print_r($where);
+
+				if(in_array($operator, $operators)) {
+					$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ? ORDER BY {$orderBy} {$order} LIMIT {$limit}";
+					
+					if(!$this->query($sql, array($value))->error()) {
+						return $this;
+					}
+				}
+			}
+
+			return false;
+		}
+
 		public function get($table, $where) {
 			return $this->action('SELECT *', $table, $where);
+		}
+
+		public function getAmount($table, $where, $amount, $orderBy, $order) {
+			return $this->actionLimit('SELECT *', $table, $where, $amount, $orderBy, $order);
 		}
 
 		public function check($table, $fields = array()) {
