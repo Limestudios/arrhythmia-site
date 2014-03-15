@@ -1,3 +1,0 @@
-before_install:
-- currentfolder=${PWD##*/}
-- if [ '$currentfolder' != 'national' ]; then cd .. && eval 'mv $currentfolder national' && cd national; fi
