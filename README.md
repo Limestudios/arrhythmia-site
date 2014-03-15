@@ -44,6 +44,7 @@ $ grunt build
 ```
 
 ## Details
-Built with care in New Orleans | Version: **1.0.0**
+Built with care in New Orleans
 
 Copyright (c) 2014 Liam Craver & [Patrick Burtchaell](http://pburtchaell.com/legal)
+w
