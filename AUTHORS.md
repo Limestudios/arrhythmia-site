@@ -1,2 +1,0 @@
-- Patrick Burtchaell, [@pburtchell](https://www.twitter.com/pburtchaell)
-- Liam Craver, [](http://twitter.com/)
