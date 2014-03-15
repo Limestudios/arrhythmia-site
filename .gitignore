@@ -1,15 +1,12 @@
 .settings
 *.DS_Store
 
-# LOCAL DOCUMENTS
-TASKLIST.md
-CONTRIBUTING.md
-
 # DEVELOPMENT FILES
 node_modules/
 bower_components/
+npm-debug.log
+TASKLIST.md
 
 # PRODUCTION FILES
-dist/
 src/app/themes/default/css
 src/app/themes/default/js
