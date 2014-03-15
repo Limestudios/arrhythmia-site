@@ -5,7 +5,7 @@
 	$GLOBALS['config'] = array(
 		'site' => array(
 			'url' => '',
-			'homeurl' => 'http://localhost/arrhythmia-site/src',
+			'homeurl' => 'http://localhost/arrhythmia-site/app',
 			'title' => 'Arrhythmia',
 			'theme' => 'default',
 			'email_activation' => false
@@ -29,10 +29,10 @@
 
 
 	spl_autoload_register(function($class) {
-		require_once 'app/classes/' . $class . '.php';
+		require_once 'lib/classes/' . $class . '.php';
 	});
 
-	require_once 'app/functions/Sanitize.php';
+	require_once 'lib/functions/Sanitize.php';
 	//include "app/themes/".Config::get('site/theme')."/template/header.php";
 	//include "app/themes/".Config::get('site/theme')."/template/navbar.php";
 

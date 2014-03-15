@@ -3,7 +3,7 @@
 <?php
 
 # Load all of the selected theme's CSS files
-$dirCSS = Config::get('site/url').'app/themes/'.Config::get('site/theme').'/css';
+$dirCSS = Config::get('site/url').'lib/themes/'.Config::get('site/theme').'/css';
 $fpCSS = opendir($dirCSS);
 while ($fileCSS = readdir($fpCSS)) {
         if (strpos($fileCSS, '.css',1))
@@ -16,7 +16,7 @@ foreach ($resultsCSS as $resultCSS) {
 }
  
 # Load all of the selected theme's javascript files
-    $dirJS = 'app/themes/default/js';
+    $dirJS = 'lib/themes/default/js';
     $fpJS = opendir($dirJS);
     while ($fileJS = readdir($fpJS)) {
             if (strpos($fileJS, '.js',1))
