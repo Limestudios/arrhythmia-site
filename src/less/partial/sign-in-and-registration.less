@@ -1,0 +1,70 @@
+.form-special {
+  margin: 0 @column*4;
+  padding: 0;
+  background: @blue;
+  -webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+	   -moz-animation-name: fadeInUp;
+	     -o-animation-name: fadeInUp;
+	        animation-name: fadeInUp;
+}
+
+// fadeInUp Animation
+@-webkit-keyframes fadeInUp {
+	0% { opacity: 0; -webkit-transform: translateX(50px); }
+	100% { opacity: 1; -webkit-transform: translateX(0); }
+}
+@-moz-keyframes fadeInUp {
+	0% {opacity: 0; -moz-transform: translateX(50px);}
+	100% {opacity: 1;-moz-transform: translateX(0);}
+}
+@-o-keyframes fadeInUp {
+	0% {opacity: 0;-o-transform: translateX(50px);}
+	100% {opacity: 1;-o-transform: translateX(0);}
+}
+@keyframes fadeInUp {
+	0% {opacity: 0; transform: translateX(50px); }
+	100% { opacity: 1; transform: translateX(0); }
+}
+
+// wrapper for the form
+.form-special-wrapper {
+  padding: @base-padding;
+} 
+
+// buttons on the bottom of the form - "submit", "cancel", etc.
+.form-special-button {
+  
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+  background: @green;
+  border: none;
+  padding: 0;
+  margin: 0 !important;
+  float: left;
+  
+  &.button-left {
+    left: 0; 
+  }
+  
+  &.button-right {
+    left: 50%;
+    background: @orange;
+  }
+  
+  &:hover {
+    -webkit-transform: translateY(-3px);
+  }
+  
+}
+
