@@ -46,5 +46,4 @@ $ grunt build
 ## Details
 Built with care in New Orleans
 
-Copyright (c) 2014 Liam Craver & [Patrick Burtchaell](http://pburtchaell.com/legal)
-w
+Copyright (c) 2014 Liam Craver & Patrick Burtchaell 
