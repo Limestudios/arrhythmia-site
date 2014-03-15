@@ -8,5 +8,5 @@ npm-debug.log
 TASKLIST.md
 
 # PRODUCTION FILES
-app/lib/themes/*.css
-app/lib/themes/*.js
+app/lib/themes/default/css/
+app/lib/themes/default/js/
