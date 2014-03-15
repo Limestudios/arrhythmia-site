@@ -1,24 +1,22 @@
 module.exports = function(grunt) {
-
-	'use strict';
   
-	grunt.initConfig({ 
-        
+  'use strict';
+  
+  var buildDir = '<%= pkg.build %>';
+  var sourceDir = '<%= pkg.source %>';
+  
+  grunt.initConfig({ 
     pkg:grunt.file.readJSON('package.json'),
-        
-    // combine LESS
     less: {
       production: {
         options: {
           yuicompress: true
         },
         files: {
-          '<%= pkg.build %>/css/styles.css':'<%= pkg.source %>/less/styles.less'
+          '<%= pkg.build %>/css/styles.css' : '<%= pkg.source %>/less/styles.less'
         }
       }
     },
-    
-    // minify JS
     uglify: { 
       production: {
         files: {
@@ -27,25 +25,20 @@ module.exports = function(grunt) {
         }
       }
     },	
-    
-    // watch all source files for changes 
     watch: {
       development: {
         files: ['<%= pkg.source %>/**/*.{less,js}'],
         tasks: ['less','uglify']
-       }
       }
-    
-	});
-	
-	// load plugins; such wow
-	grunt.loadNpmTasks('grunt-contrib-watch');	
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-uglify'); 
-	
-	// register the tasks
-	grunt.registerTask('default',['less','uglify']);		
-	grunt.registerTask('dev', ['watch:development']);
-	grunt.registerTask('build',['less','uglify']);	
-	
-}
+    }
+  });
+  
+  grunt.loadNpmTasks('grunt-contrib-watch');	
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  
+  grunt.registerTask('default',['less','uglify']);		
+  grunt.registerTask('dev', ['watch:development']);
+  grunt.registerTask('build',['less','uglify']);
+  
+};
