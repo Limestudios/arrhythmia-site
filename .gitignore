@@ -10,3 +10,5 @@ TASKLIST.md
 # PRODUCTION FILES
 app/lib/themes/default/css/
 app/lib/themes/default/js/
+
+app/lib/themes/default/css/styles.css
